@@ -6,14 +6,6 @@ import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.util.List;
 
-/**
- * Handles all file-based persistence for booking records and itineraries
- * using standard Java character and byte I/O streams.
- *
- * <p>CSV booking logs are written with a {@link BufferedWriter} (character stream).
- * Itinerary exports use a {@link BufferedOutputStream} (byte stream) to
- * demonstrate both I/O families.</p>
- */
 public class FileStorageService {
 
     private static final String CSV_HEADER =

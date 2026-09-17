@@ -28,12 +28,12 @@ public class App {
     private static final FileStorageService storage = new FileStorageService();
     private static final Scanner scanner = new Scanner(System.in);
 
-    /* ---- Passenger ID counter for interactive booking ---- */
+    // Passenger ID counter for interactive booking
     private static int passengerSeq = 1;
 
-    /* ================================================================ */
-    /*  Bootstrap                                                       */
-    /* ================================================================ */
+
+    // Bootstrap
+
 
     public static void main(String[] args) {
 
@@ -67,9 +67,9 @@ public class App {
         scanner.close();
     }
 
-    /* ================================================================ */
-    /*  Menu                                                            */
-    /* ================================================================ */
+
+    // Menu  
+
 
     private static void printMenu() {
         System.out.println("\n---------------------------------------------------------");
@@ -85,9 +85,8 @@ public class App {
         System.out.print("  Select option: ");
     }
 
-    /* ================================================================ */
-    /*  1. View routes                                                  */
-    /* ================================================================ */
+    //  1. View routes   
+
 
     private static void viewRoutes() {
         System.out.println("\n  === Available Transport Routes ===\n");
@@ -101,9 +100,9 @@ public class App {
         }
     }
 
-    /* ================================================================ */
-    /*  2. Interactive booking                                          */
-    /* ================================================================ */
+  
+    // 2. Interactive booking 
+   
 
     private static void bookInteractive() {
         System.out.println("\n  === Book a Ticket ===\n");
@@ -142,9 +141,9 @@ public class App {
         }
     }
 
-    /* ================================================================ */
-    /*  3. Multi-threaded stress test                                   */
-    /* ================================================================ */
+    
+    //  3. Multi-threaded stress test  
+   
 
     private static void runStressTest() {
         System.out.println("\n  === Multi-Threaded Booking Stress Test ===\n");
@@ -192,9 +191,9 @@ public class App {
         }
     }
 
-    /* ================================================================ */
-    /*  4. Cancel booking                                               */
-    /* ================================================================ */
+
+    // 4. Cancel booking
+ 
 
     private static void cancelBooking() {
         System.out.println("\n  === Cancel / Refund a Booking ===\n");
@@ -213,9 +212,7 @@ public class App {
         }
     }
 
-    /* ================================================================ */
-    /*  5. Export itinerary                                              */
-    /* ================================================================ */
+    // 5. Export itinerary
 
     private static void exportItinerary() {
         System.out.println("\n  === Export Itinerary ===\n");
@@ -242,9 +239,8 @@ public class App {
         }
     }
 
-    /* ================================================================ */
-    /*  6. View all bookings                                            */
-    /* ================================================================ */
+    // 6. View all bookings
+
 
     private static void viewBookings() {
         System.out.println("\n  === All Bookings ===\n");
@@ -258,9 +254,9 @@ public class App {
         }
     }
 
-    /* ================================================================ */
-    /*  7. Save records to CSV                                          */
-    /* ================================================================ */
+    
+    //  7. Save records to CSV 
+   
 
     private static void saveRecords() {
         System.out.println("\n  === Save Booking Records ===\n");
@@ -273,9 +269,7 @@ public class App {
         }
     }
 
-    /* ================================================================ */
-    /*  Seed data                                                       */
-    /* ================================================================ */
+        //  Seed data
 
     private static void seedRoutes() {
         List<Transport> routes = new ArrayList<>();

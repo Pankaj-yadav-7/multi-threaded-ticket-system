@@ -1,8 +1,7 @@
 package com.engine.model;
 
-/**
- * Concrete transport representing a train service.
- */
+// Concrete transport representing a train service.
+
 public class Train extends Transport {
 
     private final String trainClass;   // e.g. "Sleeper", "AC First", "General"

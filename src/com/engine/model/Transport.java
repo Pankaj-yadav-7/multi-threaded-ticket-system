@@ -1,9 +1,8 @@
 package com.engine.model;
 
-/**
- * Abstract base class for all transport types (flights, trains, etc.).
- * Encapsulates common inventory and route information.
- */
+// Abstract base class for all transport types (flights, trains, etc.).
+// Encapsulates common inventory and route information.
+
 public abstract class Transport {
 
     private final String id;
@@ -25,7 +24,7 @@ public abstract class Transport {
         this.fare = fare;
     }
 
-    /* ---- Getters ---- */
+    // Getters
 
     public String getId() { return id; }
 
@@ -41,22 +40,20 @@ public abstract class Transport {
 
     public double getFare() { return fare; }
 
-    /* ---- Seat management (package-visible for service layer) ---- */
+    // Seat management (package-visible for service layer)
 
     public void decrementSeat() { availableSeats--; }
 
     public void incrementSeat() { availableSeats++; }
 
-    /* ---- Polymorphic display ---- */
+    // Polymorphic display
 
-    /**
-     * Returns a transport-type label used in listings and itineraries.
-     */
+    //Returns a transport-type label used in listings and itineraries.
+    
     public abstract String getType();
 
-    /**
-     * Returns a detail line specific to the concrete transport subclass.
-     */
+    //Returns a detail line specific to the concrete transport subclass.
+    
     public abstract String getDetails();
 
     @Override

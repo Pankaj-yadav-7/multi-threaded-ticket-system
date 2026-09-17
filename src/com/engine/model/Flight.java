@@ -1,8 +1,6 @@
 package com.engine.model;
+//Concrete transport representing an airline flight.
 
-/**
- * Concrete transport representing an airline flight.
- */
 public class Flight extends Transport {
 
     private final String airline;

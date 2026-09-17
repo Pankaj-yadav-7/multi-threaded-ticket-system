@@ -3,12 +3,11 @@ package com.engine.model;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-/**
- * Immutable record of a single booking transaction.
- */
+// Immutable record of a single booking transaction.
+
 public class Booking {
 
-    /** Booking lifecycle states. */
+    //Booking lifecycle states. 
     public enum Status { CONFIRMED, CANCELLED }
 
     private static final DateTimeFormatter FMT =
@@ -31,7 +30,7 @@ public class Booking {
         this.timestamp = LocalDateTime.now();
     }
 
-    /* ---- Getters ---- */
+    // getters
 
     public String getBookingId() { return bookingId; }
 
@@ -47,15 +46,13 @@ public class Booking {
 
     public String getFormattedTimestamp() { return timestamp.format(FMT); }
 
-    /* ---- State transition ---- */
+    // state transition
 
     public void cancel() { this.status = Status.CANCELLED; }
 
-    /* ---- Serialisation helpers ---- */
+    // Serialisation helpers
 
-    /**
-     * Returns a CSV-safe line for file persistence.
-     */
+    
     public String toCsvLine() {
         return String.join(",",
                 bookingId,
@@ -69,9 +66,8 @@ public class Booking {
                 getFormattedTimestamp());
     }
 
-    /**
-     * Returns a human-readable itinerary block.
-     */
+    //Returns a human-readable itinerary block.
+    
     public String toItinerary() {
         return "===================================================\n" +
                "              BOOKING ITINERARY\n" +

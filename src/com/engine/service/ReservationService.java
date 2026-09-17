@@ -19,27 +19,24 @@ import java.util.concurrent.locks.ReentrantLock;
  */
 public class ReservationService {
 
-    /* ---- Shared state ---- */
+    // Shared state
 
-    /** All registered transport routes keyed by transport ID. */
+    // All registered transport routes keyed by transport ID. 
     private final ConcurrentHashMap<String, Transport> routes = new ConcurrentHashMap<>();
 
-    /** All bookings ever created, for listing and cancellation. */
+    /// All bookings ever created, for listing and cancellation.
     private final CopyOnWriteArrayList<Booking> bookings = new CopyOnWriteArrayList<>();
 
-    /** Per-transport locks to serialise seat mutations. */
+    // Per-transport locks to serialise seat mutations.
     private final ConcurrentHashMap<String, ReentrantLock> locks = new ConcurrentHashMap<>();
 
-    /** Monotonic booking-ID counter (thread-safe). */
+    // Monotonic booking-ID counter (thread-safe).
     private final AtomicInteger bookingCounter = new AtomicInteger(1000);
 
-    /* ================================================================ */
-    /*  Route management                                                */
-    /* ================================================================ */
+  
+    // Route management 
+   
 
-    /**
-     * Seeds the system with a collection of transports.
-     */
     public void loadRoutes(List<Transport> transports) {
         for (Transport t : transports) {
             routes.put(t.getId(), t);
@@ -47,18 +44,10 @@ public class ReservationService {
         }
     }
 
-    /**
-     * Returns an unmodifiable snapshot of all routes.
-     */
     public List<Transport> getAllRoutes() {
         return Collections.unmodifiableList(new ArrayList<>(routes.values()));
     }
 
-    /**
-     * Looks up a transport by ID.
-     *
-     * @throws InvalidBookingException if the ID does not match any route
-     */
     public Transport findRoute(String transportId) {
         Transport t = routes.get(transportId);
         if (t == null) {
@@ -68,9 +57,8 @@ public class ReservationService {
         return t;
     }
 
-    /* ================================================================ */
-    /*  Booking — thread-safe seat allocation                           */
-    /* ================================================================ */
+
+    // Booking — thread-safe seat allocation 
 
     /**
      * Books a seat for the given passenger on the specified transport.
@@ -121,9 +109,7 @@ public class ReservationService {
         }
     }
 
-    /* ================================================================ */
-    /*  Cancellation                                                    */
-    /* ================================================================ */
+    // Cancellation 
 
     /**
      * Cancels an existing booking by its ID, returning the released seat
@@ -170,20 +156,17 @@ public class ReservationService {
         return target;
     }
 
-    /* ================================================================ */
-    /*  Query helpers                                                    */
-    /* ================================================================ */
 
-    /**
-     * Returns all bookings (confirmed and cancelled).
-     */
+    // Query helpers 
+
+    // Returns all bookings (confirmed and cancelled).
+    
     public List<Booking> getAllBookings() {
         return Collections.unmodifiableList(new ArrayList<>(bookings));
     }
 
     /**
      * Finds a single booking by its ID.
-     *
      * @throws InvalidBookingException if not found
      */
     public Booking findBooking(String bookingId) {

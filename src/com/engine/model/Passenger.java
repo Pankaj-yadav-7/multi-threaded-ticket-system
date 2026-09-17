@@ -1,8 +1,7 @@
 package com.engine.model;
 
-/**
- * Represents a passenger who may hold one or more bookings.
- */
+//Represents a passenger who may hold one or more bookings.
+ 
 public class Passenger {
 
     private final String id;
