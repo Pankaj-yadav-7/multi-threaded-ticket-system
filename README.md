@@ -47,7 +47,7 @@ Both are actively caught in `ReservationService`, `BookingTask`, and every `App`
 ## Repository Directory Tree
 
 ```
-vityarthi/
+multi-threaded-ticket-system/
 ├── src/
 │   └── com/
 │       └── engine/
@@ -87,7 +87,7 @@ vityarthi/
 ### Compile
 
 ```bash
-cd vityarthi
+cd multi-threaded-ticket-system
 
 javac -d bin src/com/engine/exception/*.java \
               src/com/engine/model/*.java \
